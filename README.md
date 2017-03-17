@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/capgemini-psdu/build-your-own-hubot.svg?branch=master)](https://travis-ci.org/capgemini-psdu/build-your-own-hubot)
+
 # PSD2obot
 
 PSD2obot is a chat bot built on the [Hubot][hubot] framework. It was
