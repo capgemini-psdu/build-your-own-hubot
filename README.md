@@ -76,6 +76,32 @@ Once you’ve got your bot set up as you like, you can run your hubot with the r
 [slackapi]:https://slackapi.github.io/hubot-slack/
 [custom-slackbot]:https://my.slack.com/apps/A0F7YS25R-bots
 
-### Deploying to AWS
+## Deploying to AWS
 
-TODO
+This section describes to manual process to set this up. We will automate this process at some point.
+
+### Set up the necessary AWS infra
+
+#### Create a virtual machine
+
+A t2.micro EC2 instance running AWS Linux is sufficient.
+
+
+#### Prepare the EC2 instance to run your application
+
+First we need to install the main dependencies: git, npm and redis. SSH to the machine, install git:
+
+    % yum install git
+
+Create a new SSH key pair and add the public key to your GitHub account in the usual way.
+
+Next install npm. See https://nodejs.org/en/download/package-manager/ for details of how to do this on AWS Linux.
+
+### Deploying the application
+
+You should now be able to pull the project code and run the application:
+
+    % git clone git@github.com:capgemini-psdu/build-your-own-hubot.git
+    % cd build-your-own-hubot
+    % npm install
+    % HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack
