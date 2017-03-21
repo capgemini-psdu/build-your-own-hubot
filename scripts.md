@@ -2,63 +2,10 @@
 
 ### PSD2obot Configuration
 
-PSD2obot has been configured with scripts available at commit [ec0b06a][ec0b06a] from github [hubot-scripts][hubot-scripts] repository.
+PSD2obot can be configured with scripts available at from github [hubot-scripts][hubot-scripts] repository. Details for running each of the scripts can be found on the [hubot scripts catalogue][hubot-catalog].
 
-[ec0b06a]:https://github.com/github/hubot-scripts/commit/ec0b06aa9f2169c8427cdf77f49a0de698c969b1
 [hubot-scripts]:https://github.com/github/hubot-scripts.git
-
-Details for each of scripts can be found on the [hubot scripts catalogue][hubot-catalog].
-
 [hubot-catalog]:http://hubot-script-catalog.herokuapp.com/
-
-##### Excluded scripts:
-
-The following scripts have been removed to seperate directory (excluded_scripts) due to error/warnings on startup.
-
-  Additional Configuration Required:
-    * aws.coffee - requires /config entries
-    * fastspring.coffee:  privateKey = process.env.HUBOT_FASTSPRING_PRIVATE_KEY
-    * file-brain.coffee Error: ENOENT: no such file or directory, open '/var/hubot/brain-dump.json'
-    * gerrit.coffee Gerrit commands inactive because HUBOT_GERRIT_SSH_URL= is not a valid SSH URL
-    * gtalk.coffee TypeError: Cannot read property 'domain' of undefined
-    * harvest.coffee HUBOT_HARVEST_SUBDOMAIN in the environment to use the harvest plugin script
-    * janky.coffee TypeError: Parameter "url" must be a string, not undefined
-    * jira-issues.coffee TypeError: Cannot read property 'length' of null
-    * mongo-brain.coffee requires mongodb instance
-    * mongolab-brain.coffee TypeError: Parameter "url" must be a string, not undefined
-    * pg-brain.coffee: Error: pg-brain requires a DATABASE_URL to be set
-    * quandora.coffee no domain defined, you need to set HUBOT_QUANDORA_DOMAIN
-    * s3-brain.coffee: Error: S3 brain requires HUBOT_S3_BRAIN_ACCESS_KEY_ID, HUBOT_S3_BRAIN_SECRET_ACCESS_KEY and HUBOT_S3_BRAIN_BUCKET configured
-    * turntable.coffee TT_AUTH, TT_USERID, TT_ROOMID and TT_CHAN environment variables to enable the turntable.fm script
-    * tweet.coffee: HUBOT_TWITTER_* environment vairables are required.
-    * tweeter.coffee: HUBOT_TWITTER_* environment vairables are required.
-    * twitter-content.coffee: HUBOT_TWITTER_* environment vairables are required.
-    * twitter.coffee: HUBOT_TWITTER_* environment vairables are required.
-    * twitter-mention.coffee: HUBOT_TWITTER_* environment vairables are required.
-    * walkie.coffee - Walkie: configs are not set
-
-  Error:
-    * beeradvocate.coffee script does not work (github/hubot-scripts#1436)
-    * drush.coffee - ERROR Error: spawn drush ENOENT
-    * pagerduty_points.coffee: SyntaxError: unexpected OUTDENT
-    * stocks.coffee: ReferenceError: modules is not defined
-    * yelp.coffee: TypeError: require(...).createClient is not a function
-    Unable to load Error
-      * bing-images.coffee undefined
-      * espn.coffee: undefined
-      * team-city-listener.coffee: undefined
-
-  Warning:
-    * crossing.coffee - Gets border waiting times to US - depreciated documentaion syntax
-    * dimmerworld.coffee Anchors don't work well with respond, perhaps you want to use 'hear' - The regex in question was /^dimmer/i
-    * plus_one.coffee is using deprecated documentation syntax
-    * trollicon.coffee is using deprecated documentation syntax
-
-  Invesigation required:
-    * eval.coffee - stops on INFO Brain received eval language list
-    * talkative.coffee - stops on 'loading knowledge'
-    * webshot.coffee - Failed at the hashlib@1.0.1 preinstall script 'node-waf clean || true; node-waf configure build'.
-      module hashlib 1.0.1 fails to compile on Mac. May work on other OS?
 
 ### Environment Variables
 

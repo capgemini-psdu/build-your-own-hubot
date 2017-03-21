@@ -28,7 +28,7 @@ class Karma
     ]
 
     @decrement_responses = [
-      "took a hit! Ouch.", "took a dive.", "lost a life.", "lost a level."
+      "took a hit! Ouch.", "took a dive.", "lost a level."
     ]
 
     @robot.brain.on 'loaded', =>
@@ -57,7 +57,6 @@ class Karma
 
   selfDeniedResponses: (name) ->
     @self_denied_responses = [
-      "Hey everyone! #{name} is a narcissist!",
       "I might just allow that next time, but no.",
       "I can't do that #{name}."
     ]
