@@ -97,7 +97,13 @@ First we need to install the main dependencies: git, npm and redis. SSH to the m
 
 Create a new SSH key pair and add the public key to your GitHub account in the usual way.
 
-Next install npm. See https://nodejs.org/en/download/package-manager/ for details of how to do this on AWS Linux.
+Next install npm. See https://nodejs.org/en/download/package-manager/ for details about node and the AWS documentation http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html for details of how to do this on AWS Linux.
+
+The download and installation of Redis as a service has been automated and can be completed by the following commands:
+
+    % wget https://gist.githubusercontent.com/yenkeecg/b00edfcc3476fb6d208eb5546b874673/raw/install-redis.sh
+    % chmod 777 install-redis.sh
+    % ./install-redis.sh
 
 ### Deploying the application
 
@@ -107,3 +113,11 @@ You should now be able to pull the project code and run the application:
     % cd build-your-own-hubot
     % npm install
     % HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack
+
+
+### Deploying to UNIX or Windows
+
+    The default Hubot documentation comes with a link with vague instructions about how to deploy to a UNIX operating system.
+    Please check out the [deploying hubot onto UNIX][deploy-unix]  wiki page if you would like more information.
+
+    [deploy-unix]: https://github.com/github/hubot/blob/master/docs/deploying/unix.md
