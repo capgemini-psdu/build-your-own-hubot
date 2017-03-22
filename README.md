@@ -117,7 +117,44 @@ You should now be able to pull the project code and run the application:
 
 ### Deploying to UNIX or Windows
 
-    The default Hubot documentation comes with a link with vague instructions about how to deploy to a UNIX operating system.
-    Please check out the [deploying hubot onto UNIX][deploy-unix]  wiki page if you would like more information.
+The default Hubot documentation comes with a link with vague instructions about how to deploy to a UNIX operating system. Please check out the [deploying hubot onto UNIX][deploy-unix]  wiki page if you would like more information.
 
-    [deploy-unix]: https://github.com/github/hubot/blob/master/docs/deploying/unix.md
+[deploy-unix]: https://github.com/github/hubot/blob/master/docs/deploying/unix.md
+
+### Installing the application as an OS service
+
+We recommend that you configure the application to run via upstart so that it automatically restarts after e.g. the EC2 instance is rebooted.
+
+Create the upstart job configuration:
+
+`sudo vi /etc/init/hubot.conf`
+
+Example contents for this file are supplied below:
+
+```
+description "Hubot upstart script"
+
+start on filesystem or runlevel [2345]
+stop on runlevel [!2345]
+
+# Restart upon crash
+respawn
+# Moving average maximum 5 restarts in 60 seconds
+respawn limit 5 60
+
+script
+  cd /home/ec2-user/build-your-own-hubot
+  export PATH="/home/ec2-user/build-your-own-hubot/node_modules/.bin:/home/ec2-user/build-your-own-hubot/node_modules/hubot/node_modules/.bin:/home/ec2-user/.nvm/versions/node/v6.10.0/bin:$PATH"
+  npm install >> /var/log/hubot.log 2>&1
+  HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack >> /var/log/hubot.log 2>&1
+end script
+
+```
+
+You should then be able to start and stop the application using upstart e.g.:
+
+```
+sudo start hubot
+sudo stop hubot
+sudo restart hubot
+```
