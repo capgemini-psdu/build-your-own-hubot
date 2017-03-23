@@ -5,6 +5,7 @@
   "author": "Yen <yen-kee.miu@capgemini.com>",
   "description": "PSDDO Robot for Slack Integration",
   "dependencies": {
+    "aws2js": "^0.8.3",
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-env": "0.0.2",
