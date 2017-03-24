@@ -37,6 +37,13 @@ the thing.
 
 [scripting-docs]: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+#### PSD2obot Environment variables
+
+PSD2obot has file in config/.env to hold environment variables. The current selection of scripts requires the following to be populated:
+
+    REDIS_URL=redis://<auth>@localhost:6379/<prefix>
+    KARMA_ALLOW_SELF=false
+
 ### hubot-scripts
 
 Before hubot plugin packages were adopted, most plugins were held in the

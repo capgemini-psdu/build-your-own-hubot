@@ -145,7 +145,6 @@ respawn limit 5 60
 script
   cd /home/ec2-user/build-your-own-hubot
   export PATH="/home/ec2-user/build-your-own-hubot/node_modules/.bin:/home/ec2-user/build-your-own-hubot/node_modules/hubot/node_modules/.bin:/home/ec2-user/.nvm/versions/node/v6.10.0/bin:$PATH"
-  npm install >> /var/log/hubot.log 2>&1
   HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack >> /var/log/hubot.log 2>&1
 end script
 
