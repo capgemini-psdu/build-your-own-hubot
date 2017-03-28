@@ -44,6 +44,19 @@ PSD2obot has file in config/.env to hold environment variables. The current sele
     REDIS_URL=redis://<auth>@localhost:6379/<prefix>
     KARMA_ALLOW_SELF=false
 
+Some of the scripts require environment variables set on hubot startup. This can be automated in the hubot upstart .conf script. The current script entry for psd2obot looks like:
+
+```
+script
+  cd /home/ec2-user/build-your-own-hubot
+  export PATH="/home/ec2-user/build-your-own-hubot/node_modules/.bin:/home/ec2-user/build-your-own-hubot/node_modules/hubot/node_modules/.bin:/home/ec2-user/.nvm/versions/node/v6.10.0/bin:$PATH"
+  export HUBOT_S3_BRAIN_BUCKET=psd2obot-redis-backup
+  export HUBOT_S3_BRAIN_SAVE_INTERVAL=86400
+  export HUBOT_S3_BRAIN_NOT_REQUIRED=false
+  HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack >> /var/log/hubot.log 2>&1
+end script
+```
+
 ### hubot-scripts
 
 Before hubot plugin packages were adopted, most plugins were held in the
