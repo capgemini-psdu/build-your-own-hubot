@@ -157,3 +157,13 @@ sudo start hubot
 sudo stop hubot
 sudo restart hubot
 ```
+### AWS S3 Backup
+
+PSD2obot uses a AWS S3 bucket to backup it's brain. This is enabled by the 'hubot-s3-brain-aws.coffee' script. In order for the script to work, there are a few parameters to set on hubot startup. These can be added to the .conf upstart script mentioned in the previous section.
+
+The three parameters are:
+- HUBOT_S3_BRAIN_BUCKET - specifies the bucket name where the brain is backed up.
+- HUBOT_S3_BRAIN_SAVE_INTERVAL - interval in seconds for brain storage. PSD2obot has been set for a 24 hour interval.
+- HUBOT_S3_BRAIN_NOT_REQUIRED - switches off s3 storage when true to allow local running/testing of PSD2obot.
+
+The backup script is a lightly modified version of the npm packaged hubot-s3-brain script which uses more security credential parameters. The original script can be found at: https://www.npmjs.com/package/hubot-s3-brain
