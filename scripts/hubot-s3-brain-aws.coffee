@@ -35,6 +35,8 @@ AWS.config.apiVersions = {
   s3: '2006-03-01'
 }
 
+AWS.config.update({region: 'eu-west-2'});
+
 module.exports = (robot) ->
 
   loaded            = false
