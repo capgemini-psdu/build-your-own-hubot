@@ -166,4 +166,4 @@ The three parameters are:
 - HUBOT_S3_BRAIN_SAVE_INTERVAL - interval in seconds for brain storage. PSD2obot has been set for a 24 hour interval.
 - HUBOT_S3_BRAIN_NOT_REQUIRED - switches off s3 storage when true to allow local running/testing of PSD2obot.
 
-The backup script is a lightly modified version of the npm packaged hubot-s3-brain script which uses more security credential parameters. The original script can be found at: https://www.npmjs.com/package/hubot-s3-brain
+The backup script is a lightly modified version of the npm packaged hubot-s3-brain script which uses more security credential parameters. The original script can be found at: https://www.npmjs.com/package/hubot-s3-brain. As the PSD2obot runs on amazon EC2, it uses a configured IAM role to enable S3 access.
