@@ -7,5 +7,7 @@
   "hubot-redis-brain",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-relevant-dilbert"
+  "hubot-relevant-dilbert",
+  "hubot-remind-her",
+  "hubot-cron"
 ]
